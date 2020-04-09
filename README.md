@@ -7,7 +7,9 @@ docker-compose up
 http://localhost:8501/ should be active now 
 
 navigate to the notebooks folder inside your jupyter notebook 
-access and manipulate the dashboard at streamlit-dashboard.ipynb
+
+access the dashboard at streamlit-dashboard.ipynb
+make changes or whatever
 save and checkpoint
 go to converter.ipynb
 run

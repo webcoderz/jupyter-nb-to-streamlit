@@ -2,8 +2,29 @@ version: "3"
 services:
   streamlit:
     build: .
+    tty: true
+    networks:
+      - inbound
     ports:
       - "8501:8501"
     volumes:
-      - "./notebooks:/app"    
+      - "./notebooks:/app"
     command: sh -c "streamlit run streamlit-dashboard.py"
+
+  jupyter:
+     image: jupyter/datascience-notebook
+     tty: true
+     networks:
+       - inbound
+     ports:
+       - "8888:8888"
+     command: sh -c "jupyter-notebook"
+     working_dir: /work
+     volumes:
+      - "./notebooks:/work/dashboard"
+      - "./app:/work/app"
+
+
+
+networks:
+    inbound:
